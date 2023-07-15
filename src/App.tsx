@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import styled from 'styled-components';
 import './App.css';
+import Nav from './components/Nav';
+import Sidebar from './components/Sidebar';
+import WorkSpace from './components/WorkSpace';
 
-function App() {
+const NotesWrapper = styled.div`
+  width: 70%;
+  height: 700px;
+  margin: 50px auto;
+  border-radius: 10px;
+  border: 1px solid #000;
+
+  @media (max-width: 576px) {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+  }
+`
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: 93%;
+`
+
+const App : React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <NotesWrapper>
+      <Nav/>
+      <Wrapper>
+        <Sidebar/>
+        <WorkSpace/>
+      </Wrapper>
+   </NotesWrapper>
+  )
 }
 
 export default App;
